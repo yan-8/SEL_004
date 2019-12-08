@@ -19,9 +19,9 @@ public class BaseGridClass {
             return;
         }
 
-        capabilities = DesiredCapabilities.chrome();
-//        capabilities = DesiredCapabilities.firefox();
-        remoteSeleniumGrid = new URL("http://192.168.55.100:4444/wd/hub");
+        capabilities = DesiredCapabilities.firefox();
+//        capabilities = DesiredCapabilities.chrome();
+        remoteSeleniumGrid = new URL("http://192.168.55.103:4444/wd/hub");
         driver = new RemoteWebDriver(remoteSeleniumGrid, capabilities);
         threadLocalDriver.set(driver);
 
@@ -29,10 +29,5 @@ public class BaseGridClass {
             driver.quit();
             driver = null;
         }));
-    }
-
-    @After
-    public void finishBrowser() {
-//        driver.quit();
     }
 }
